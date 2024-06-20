@@ -20,7 +20,10 @@ catkin_package()
 ###########
 ## Build ##
 ###########
-include_directories(${catkin_INCLUDE_DIRS})
+include_directories(
+  ${catkin_INCLUDE_DIRS}
+  ${PCL_INCLUDE_DIRS}
+)
 
 add_executable(gridmap_to_pointcloud_node src/gridmap_to_pointcloud.cpp)
 target_link_libraries(gridmap_to_pointcloud_node ${catkin_LIBRARIES} ${PCL_LIBRARIES})
