@@ -79,13 +79,13 @@ public:
    */
   void process(void)
   {
-    ros::Rate rate(hz_);
     const nav_msgs::OccupancyGrid gridmap = get_map();
     sensor_msgs::PointCloud2 cloud_msg;
     convert_gridmap_to_pointcloud(gridmap, cloud_msg);
     cloud_msg.header.frame_id = gridmap.header.frame_id;
     cloud_msg.header.stamp = ros::Time::now();
 
+    ros::Rate rate(hz_);
     while (ros::ok())
     {
       cloud_pub_.publish(cloud_msg);
