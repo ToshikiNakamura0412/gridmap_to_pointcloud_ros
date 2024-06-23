@@ -27,6 +27,8 @@ public:
   {
     private_nh_.param<int>("hz", hz_, 1);
     cloud_pub_ = nh_.advertise<sensor_msgs::PointCloud2>("/map_cloud", 1);
+    ROS_INFO_STREAM(ros::this_node::getName() << " node has started..");
+    ROS_INFO_STREAM("hz: " << hz_);
   }
 
   /**
